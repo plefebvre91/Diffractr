@@ -1,3 +1,8 @@
 #include "diffractor.h"
 
-Diffractor::Diffractor():zoom(1),color(0){}
+Diffractor::Diffractor():color(){}
+
+void Diffractor::setColor(int c){
+    color.setHsv(c, 255, 255);
+    color = color.toRgb();
+}

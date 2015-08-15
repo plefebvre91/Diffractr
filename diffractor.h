@@ -2,27 +2,27 @@
 #define DIFFRACTOR_H
 
 #include <QImage>
+#include <QColor>
+#include <cmath>
 
 class Diffractor
 {
 public:
-    Diffractor();
 
-    virtual void run(QImage& image) const = 0;
+    Diffractor();
+    virtual void run(QImage& image) = 0;
     virtual void setDimensions(double c) = 0;
     virtual void setDimensions(double w, double h) = 0;
 
-    inline void setZoom(double z) {
+    void setColor(int c);
+
+    inline void setZoom(int z) {
         zoom = z;
     }
 
-    inline void setColor(double c) {
-        color = c;
-    }
-
-private:
+protected:
     double zoom;
-    double color;
+    QColor color;
 };
 
 #endif // DIFFRACTOR_H

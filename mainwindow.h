@@ -7,6 +7,9 @@
 #define DR_HEIGHT 256
 
 #include <QMessageBox>
+#include "diffractor.h"
+#include "straightslitdiffractor.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -24,6 +27,7 @@ public slots:
 
 private:
     Ui::MainWindow *ui;
+    StraightSlitDiffractor sSlitDiffractor;
     QImage* image;
 };
 

@@ -12,9 +12,26 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->labelImage->setPixmap(QPixmap::fromImage(*image));
 
-
+     QObject::connect(ui->radioCircularSlit, SIGNAL(clicked()), this, SLOT(setCircularSlitMode()));
+     QObject::connect(ui->radioStraightSlit, SIGNAL(clicked()), this, SLOT(setStraightSlitMode()));
 
 }
+
+void MainWindow::setCircularSlitMode(){
+    ui->radioStraightSlit->setChecked(false);
+    ui->diameterDoubleSpinBox->setReadOnly(false);
+    ui->widthDoubleSpinBox->setReadOnly(true);
+    ui->heightDoubleSpinBox->setReadOnly(true);
+
+}
+
+void MainWindow::setStraightSlitMode(){
+    ui->radioCircularSlit->setChecked(false);
+    ui->diameterDoubleSpinBox->setReadOnly(true);
+    ui->widthDoubleSpinBox->setReadOnly(false);
+    ui->heightDoubleSpinBox->setReadOnly(false);
+}
+
 
 void MainWindow::refresh() {
 

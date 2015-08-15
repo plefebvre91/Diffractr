@@ -16,13 +16,11 @@ void CircularSlitDiffractor::setDimensions(double w, double h) {
 
 
 double CircularSlitDiffractor::diffractionMethode(double x, double y) {
-    double lambda = 900e-9;
+    double lambda = 400e-9;
     double PI = 3.1415709;
     double rho = hypot(x,y);
-    double eta = PI*rho*diameter / lambda;
-
-    return ( (j1(eta)/eta)*(j1(eta)/eta));
-
+    double k = 2*PI/lambda;
+    return 2*j1(k*diameter*(y/rho))/(k*diameter*(y/rho)) * j1(k*diameter*(y/rho))/(k*diameter*(y/rho));
 }
 
 void CircularSlitDiffractor::run(QImage& image) {
@@ -34,9 +32,9 @@ void CircularSlitDiffractor::run(QImage& image) {
                  double PI = 3.1415709;
 
 
-             int val =(int)((atan(diffractionMethode(i,j)*10e14) * 2 / PI)*254);
+             unsigned int val =(int)((atan(diffractionMethode(dx,dy)*10e11) * 2 / PI)*254);
 
-            color.setHsv(color.hsvHue(),  255,val);
+            color.setHsv(color.hsvHue(),  254,(val>255)?255:val);
 
             color.toRgb();
 

@@ -24,6 +24,8 @@ public:
 
 public slots:
     void refresh();
+    void setStraightSlitMode();
+    void setCircularSlitMode();
 
 private:
     Ui::MainWindow *ui;

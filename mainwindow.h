@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 
+#define DR_WIDTH  256
+#define DR_HEIGHT 256
+
 namespace Ui {
 class MainWindow;
 }
@@ -15,8 +18,12 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+public slots:
+    void refresh();
+
 private:
     Ui::MainWindow *ui;
+    QImage* image;
 };
 
 #endif // MAINWINDOW_H

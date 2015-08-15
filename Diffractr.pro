@@ -13,8 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    diffractor.cpp \
+    straightslitdiffractor.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    diffractor.h \
+    straightslitdiffractor.h
 
 FORMS    += mainwindow.ui

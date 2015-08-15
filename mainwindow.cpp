@@ -11,10 +11,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->labelImage->setPixmap(QPixmap::fromImage(*image));
 
 
+
 }
 
 void MainWindow::refresh() {
-    return;
+
+    QMessageBox m;
+   m.information(0,"lol", "refresh");
+  //  m.exec();
 }
 
 MainWindow::~MainWindow()

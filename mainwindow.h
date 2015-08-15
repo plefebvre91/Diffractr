@@ -6,6 +6,7 @@
 #define DR_WIDTH  256
 #define DR_HEIGHT 256
 
+#include <QMessageBox>
 namespace Ui {
 class MainWindow;
 }

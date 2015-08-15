@@ -9,7 +9,7 @@
 #include <QMessageBox>
 #include "diffractor.h"
 #include "straightslitdiffractor.h"
-
+#include "circularslitdiffractor.h"
 namespace Ui {
 class MainWindow;
 }
@@ -28,6 +28,7 @@ public slots:
 private:
     Ui::MainWindow *ui;
     StraightSlitDiffractor sSlitDiffractor;
+    CircularSlitDiffractor cSlitDiffractor;
     QImage* image;
 };
 

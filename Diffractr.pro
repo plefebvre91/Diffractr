@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     diffractor.cpp \
-    straightslitdiffractor.cpp
+    straightslitdiffractor.cpp \
+    circularslitdiffractor.cpp
 
 HEADERS  += mainwindow.h \
     diffractor.h \
-    straightslitdiffractor.h
+    straightslitdiffractor.h \
+    circularslitdiffractor.h
 
 FORMS    += mainwindow.ui

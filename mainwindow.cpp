@@ -19,29 +19,27 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::refresh() {
 
     QMessageBox m;
-    Diffractor* diffractor;
+    Diffractor* diffractor = NULL;
+
+    double width = ui->widthDoubleSpinBox->value();
+    double height = ui->heightDoubleSpinBox->value();
+    double diameter = ui->diameterDoubleSpinBox->value();
+    double zoom = ui->zoomSlider->value();
+    int color = ui->colorDial->value();
+
     if(ui->radioStraightSlit->isChecked()){
-       // m.information(0,"straight", "refresh");
-
-        double width = ui->widthDoubleSpinBox->value();
-        double height = ui->heightDoubleSpinBox->value();
-        double zoom = ui->zoomSlider->value();
-
-
-        int color = ui->colorDial->value();
-
         diffractor = &sSlitDiffractor;
-        diffractor->setZoom(zoom);
         diffractor->setDimensions(width, height);
-        diffractor->setColor(color);
-        diffractor->run(*image);
-        ui->labelImage->setPixmap(QPixmap::fromImage(*image));
-
     }
     else if(ui->radioCircularSlit->isChecked()){
-        m.information(0,"circ", "refresh");
+        diffractor = &cSlitDiffractor;
+        diffractor->setDimensions(diameter);
     }
 
+    diffractor->setZoom(zoom);
+    diffractor->setColor(color);
+    diffractor->run(*image);
+    ui->labelImage->setPixmap(QPixmap::fromImage(*image));
 
 }
 

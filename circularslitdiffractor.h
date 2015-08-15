@@ -1,24 +1,26 @@
-#ifndef STRAIGHTSLITDIFFRACTOR_H
-#define STRAIGHTSLITDIFFRACTOR_H
+#ifndef CIRCULARSLITDIFFRACTOR_H
+#define CIRCULARSLITDIFFRACTOR_H
 
 #include "diffractor.h"
 
 /**
- * @brief The StraightSlitDiffractor class
+ * @brief The CircularSlitDiffractor class
  */
-class StraightSlitDiffractor : public Diffractor
+class CircularSlitDiffractor : public Diffractor
 {
 public:
     /**
      * @brief StraightSlitDiffractor
      */
-    StraightSlitDiffractor(){}
+    CircularSlitDiffractor();
+
 
     /**
      * @brief run Create the diffraction trace
      * @param image rendering image
      */
     virtual void run(QImage& image);
+
 
     /**
      * @brief setDimensions Slit dimensions
@@ -33,10 +35,11 @@ public:
      */
     virtual void setDimensions(double w, double h);
 
+
 private:
     double diffractionMethode(double x, double y);
-    double width;
-    double height;
+    double diameter;
 };
 
-#endif // STRAIGHTSLITDIFFRACTOR_H
+#endif // CIRCULARSLITDIFFRACTOR_H
+
